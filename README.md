@@ -42,18 +42,14 @@ Banco de Dados: Neo4j
 
 Linguagem de Consulta: Cypher
 
-Ambiente: Neo4j Desktop
-
-Visualização: Neo4j Browser
+Ambiente: Neo4j AuraDB
 
 🚀 Como Utilizar
 
 Para executar os scripts deste repositório:
 
-Certifique-se de ter o Neo4j Desktop instalado e em execução.
+Certifique-se de ter o Neo4j Desktop instalado ou Usar o AuraDB.
 
 Crie um novo projeto e inicie um banco de dados local.
 
-Abra o Neo4j Browser.
-
-Copie o conteúdo de um arquivo .cypher e execute no Browser para ver os resultados.
+Copie o conteúdo de um arquivo .cypher e execute para ver os resultados.
