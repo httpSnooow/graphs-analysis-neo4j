@@ -32,6 +32,10 @@ Linguagem Cypher
 
 Leitura, criação e atualização de dados no grafo.
 
+📂 Estrutura do Repositório
+
+/challenge: Soluções para os desafios de projeto propostos durante o bootcamp.
+
 🛠️ Tecnologias e Ferramentas
 
 Banco de Dados: Neo4j
