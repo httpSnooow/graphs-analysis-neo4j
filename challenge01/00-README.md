@@ -8,11 +8,9 @@ O desafio consiste em projetar, criar e popular um banco de dados de grafos no N
 
 📂 Conteúdo
 
-constraints.cypher: Script Cypher para criar as CONSTRAINTS (índices únicos) para cada Label (Nó) no banco de dados.
-
-merge-create.cypher: Script Cypher para popular o banco de dados com todos os nós (Usuários, Filmes, Atores, etc.).
-
-relationship.cypher: Script Cypher para ligar as relações do banco de dados entre os nós (Usuários, Filmes, Atores, etc.) e adicionar a propriedade "rating" a relação "whatched".
+script.cypher: Script Cypher para criar as CONSTRAINTS (índices únicos) para cada Label (Nó) no banco de dados,
+popular o banco de dados com todos os nós (Usuários, Filmes, Atores, etc.),
+ ligar as relações do banco de dados entre os nós (Usuários, Filmes, Atores, etc.) e adicionar a propriedade "rating" a relação "whatched".
 
 📊 Modelo de Dados
 
