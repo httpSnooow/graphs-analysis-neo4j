@@ -28,9 +28,7 @@ Aplicações Reais e Casos de Uso em Grafos
 
 Detecção de fraudes, redes sociais, sistemas de recomendação, etc.
 
-Primeiros Passos com a Linguagem Cypher
-
-Comandos MATCH, CREATE, MERGE.
+Linguagem Cypher
 
 Leitura, criação e atualização de dados no grafo.
 
