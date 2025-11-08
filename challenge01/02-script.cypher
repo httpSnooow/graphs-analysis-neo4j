@@ -134,7 +134,7 @@ MATCH (a:Actor {actorId: "actor_009"}), (m:Movie {movieId: "movie_008"}) CREATE 
 MATCH (a:Actor {actorId: "actor_006"}), (m:Movie {movieId: "movie_012"}) CREATE (a)-[:ACTED_IN]->(m); 
 
 MATCH (a:Actor {actorId: "actor_001"}), (s:Series {seriesId: "series_006"}) CREATE (a)-[:ACTED_IN]->(s); 
-MATCH (a:Actor {actorId: "actor_007"}), (s:Series {seriesId: "series_001"}) CREATE (a)-[:ACTED_IN]->(s); /
+MATCH (a:Actor {actorId: "actor_007"}), (s:Series {seriesId: "series_001"}) CREATE (a)-[:ACTED_IN]->(s); 
 MATCH (a:Actor {actorId: "actor_009"}), (s:Series {seriesId: "series_008"}) CREATE (a)-[:ACTED_IN]->(s); 
 
 
