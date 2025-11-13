@@ -1,0 +1,218 @@
+
+CREATE CONSTRAINT user_id_unique FOR (u:User) REQUIRE u.userId IS UNIQUE;
+CREATE CONSTRAINT music_id_unique FOR (m:Music) REQUIRE m.musicId IS UNIQUE;
+CREATE CONSTRAINT artist_id_unique FOR (a:Artist) REQUIRE a.artistId IS UNIQUE;
+CREATE CONSTRAINT genre_name_unique FOR (g:Genre) REQUIRE g.name IS UNIQUE;
+
+MERGE (g1:Genre {name: "Pop"})
+MERGE (g2:Genre {name: "Rock"})
+MERGE (g3:Genre {name: "Eletrônica"})
+MERGE (g4:Genre {name: "Indie"})
+MERGE (g5:Genre {name: "MPB"})
+MERGE (g6:Genre {name: "Hip-Hop"})
+MERGE (g7:Genre {name: "Classical"})
+MERGE (g8:Genre {name: "Jazz"})
+MERGE (g9:Genre {name: "Folk"})
+MERGE (g10:Genre {name: "Metal"});
+
+MERGE (a1:Artist {artistId: "artist_001", name: "Taylor Swift"})
+MERGE (a2:Artist {artistId: "artist_002", name: "Queen"})
+MERGE (a3:Artist {artistId: "artist_003", name: "Daft Punk"})
+MERGE (a4:Artist {artistId: "artist_004", name: "Florence + The Machine"})
+MERGE (a5:Artist {artistId: "artist_005", name: "Caetano Veloso"})
+MERGE (a6:Artist {artistId: "artist_006", name: "Kendrick Lamar"})
+MERGE (a7:Artist {artistId: "artist_007", name: "Beethoven"})
+MERGE (a8:Artist {artistId: "artist_008", name: "Miles Davis"})
+MERGE (a9:Artist {artistId: "artist_009", name: "The Lumineers"})
+MERGE (a10:Artist {artistId: "artist_010", name: "Metallica"})
+MERGE (a11:Artist {artistId: "artist_011", name: "Radiohead"}) 
+MERGE (a12:Artist {artistId: "artist_012", name: "Gilberto Gil"});
+
+MERGE (m1:Music {musicId: "music_001", title: "Anti-Hero"})
+MERGE (m2:Music {musicId: "music_002", title: "Cruel Summer"})
+MERGE (m3:Music {musicId: "music_003", title: "Bohemian Rhapsody"})
+MERGE (m4:Music {musicId: "music_004", title: "Don't Stop Me Now"})
+MERGE (m5:Music {musicId: "music_005", title: "Get Lucky"})
+MERGE (m6:Music {musicId: "music_006", title: "One More Time"})
+MERGE (m7:Music {musicId: "music_007", title: "Dog Days Are Over"})
+MERGE (m8:Music {musicId: "music_008", title: "Shake It Out"})
+MERGE (m9:Music {musicId: "music_009", title: "Sozinho"})
+MERGE (m10:Music {musicId: "music_010", title: "Leãozinho"})
+MERGE (m11:Music {musicId: "music_011", title: "HUMBLE."})
+MERGE (m12:Music {musicId: "music_012", title: "Alright"})
+MERGE (m13:Music {musicId: "music_013", title: "Symphony No. 5"})
+MERGE (m14:Music {musicId: "music_014", title: "Für Elise"})
+MERGE (m15:Music {musicId: "music_015", title: "So What"})
+MERGE (m16:Music {musicId: "music_016", title: "Blue in Green"})
+MERGE (m17:Music {musicId: "music_017", title: "Ho Hey"})
+MERGE (m18:Music {musicId: "music_018", title: "Ophelia"})
+MERGE (m19:Music {musicId: "music_019", title: "Enter Sandman"})
+MERGE (m20:Music {musicId: "music_020", title: "Master of Puppets"})
+MERGE (m21:Music {musicId: "music_021", title: "Creep"})
+MERGE (m22:Music {musicId: "music_022", title: "Paranoid Android"})
+MERGE (m23:Music {musicId: "music_023", title: "Everything in Its Right Place"})
+MERGE (m24:Music {musicId: "music_024", title: "Aquele Abraço"})
+MERGE (m25:Music {musicId: "music_025", title: "Andar com Fé"});
+
+MERGE (u1:User {userId: "user_001", name: "Alice"})
+MERGE (u2:User {userId: "user_002", name: "Bob"})
+MERGE (u3:User {userId: "user_003", name: "Carol"})
+MERGE (u4:User {userId: "user_004", name: "David"})
+MERGE (u5:User {userId: "user_005", name: "Eve"})
+MERGE (u6:User {userId: "user_006", name: "Frank"})
+MERGE (u7:User {userId: "user_007", name: "Grace"})
+MERGE (u8:User {userId: "user_008", name: "Heidi"})
+MERGE (u9:User {userId: "user_009", name: "Ivan"})
+MERGE (u10:User {userId: "user_010", name: "Judy"})
+MERGE (u11:User {userId: "user_011", name: "Liam"})
+MERGE (u12:User {userId: "user_012", name: "Maria"});
+
+MATCH (m:Music {title: "Anti-Hero"}), (a:Artist {name: "Taylor Swift"}) CREATE (m)-[:PERFORMED_BY]->(a);
+MATCH (m:Music {title: "Cruel Summer"}), (a:Artist {name: "Taylor Swift"}) CREATE (m)-[:PERFORMED_BY]->(a);
+MATCH (m:Music {title: "Bohemian Rhapsody"}), (a:Artist {name: "Queen"}) CREATE (m)-[:PERFORMED_BY]->(a);
+MATCH (m:Music {title: "Don't Stop Me Now"}), (a:Artist {name: "Queen"}) CREATE (m)-[:PERFORMED_BY]->(a);
+MATCH (m:Music {title: "Get Lucky"}), (a:Artist {name: "Daft Punk"}) CREATE (m)-[:PERFORMED_BY]->(a);
+MATCH (m:Music {title: "One More Time"}), (a:Artist {name: "Daft Punk"}) CREATE (m)-[:PERFORMED_BY]->(a);
+MATCH (m:Music {title: "Dog Days Are Over"}), (a:Artist {name: "Florence + The Machine"}) CREATE (m)-[:PERFORMED_BY]->(a);
+MATCH (m:Music {title: "Shake It Out"}), (a:Artist {name: "Florence + The Machine"}) CREATE (m)-[:PERFORMED_BY]->(a);
+MATCH (m:Music {title: "Sozinho"}), (a:Artist {name: "Caetano Veloso"}) CREATE (m)-[:PERFORMED_BY]->(a);
+MATCH (m:Music {title: "Leãozinho"}), (a:Artist {name: "Caetano Veloso"}) CREATE (m)-[:PERFORMED_BY]->(a);
+MATCH (m:Music {title: "HUMBLE."}), (a:Artist {name: "Kendrick Lamar"}) CREATE (m)-[:PERFORMED_BY]->(a);
+MATCH (m:Music {title: "Alright"}), (a:Artist {name: "Kendrick Lamar"}) CREATE (m)-[:PERFORMED_BY]->(a);
+MATCH (m:Music {title: "Symphony No. 5"}), (a:Artist {name: "Beethoven"}) CREATE (m)-[:PERFORMED_BY]->(a);
+MATCH (m:Music {title: "Für Elise"}), (a:Artist {name: "Beethoven"}) CREATE (m)-[:PERFORMED_BY]->(a);
+MATCH (m:Music {title: "So What"}), (a:Artist {name: "Miles Davis"}) CREATE (m)-[:PERFORMED_BY]->(a);
+MATCH (m:Music {title: "Blue in Green"}), (a:Artist {name: "Miles Davis"}) CREATE (m)-[:PERFORMED_BY]->(a);
+MATCH (m:Music {title: "Ho Hey"}), (a:Artist {name: "The Lumineers"}) CREATE (m)-[:PERFORMED_BY]->(a);
+MATCH (m:Music {title: "Ophelia"}), (a:Artist {name: "The Lumineers"}) CREATE (m)-[:PERFORMED_BY]->(a);
+MATCH (m:Music {title: "Enter Sandman"}), (a:Artist {name: "Metallica"}) CREATE (m)-[:PERFORMED_BY]->(a);
+MATCH (m:Music {title: "Master of Puppets"}), (a:Artist {name: "Metallica"}) CREATE (m)-[:PERFORMED_BY]->(a);
+MATCH (m:Music {title: "Creep"}), (a:Artist {name: "Radiohead"}) CREATE (m)-[:PERFORMED_BY]->(a);
+MATCH (m:Music {title: "Paranoid Android"}), (a:Artist {name: "Radiohead"}) CREATE (m)-[:PERFORMED_BY]->(a);
+MATCH (m:Music {title: "Everything in Its Right Place"}), (a:Artist {name: "Radiohead"}) CREATE (m)-[:PERFORMED_BY]->(a);
+MATCH (m:Music {title: "Aquele Abraço"}), (a:Artist {name: "Gilberto Gil"}) CREATE (m)-[:PERFORMED_BY]->(a);
+MATCH (m:Music {title: "Andar com Fé"}), (a:Artist {name: "Gilberto Gil"}) CREATE (m)-[:PERFORMED_BY]->(a);
+
+MATCH (m:Music {title: "Anti-Hero"}), (g:Genre {name: "Pop"}) CREATE (m)-[:BELONGS_TO_GENRE]->(g);
+MATCH (m:Music {title: "Cruel Summer"}), (g:Genre {name: "Pop"}) CREATE (m)-[:BELONGS_TO_GENRE]->(g);
+MATCH (m:Music {title: "Bohemian Rhapsody"}), (g:Genre {name: "Rock"}) CREATE (m)-[:BELONGS_TO_GENRE]->(g);
+MATCH (m:Music {title: "Don't Stop Me Now"}), (g:Genre {name: "Rock"}) CREATE (m)-[:BELONGS_TO_GENRE]->(g);
+MATCH (m:Music {title: "Get Lucky"}), (g:Genre {name: "Eletrônica"}) CREATE (m)-[:BELONGS_TO_GENRE]->(g);
+MATCH (m:Music {title: "One More Time"}), (g:Genre {name: "Eletrônica"}) CREATE (m)-[:BELONGS_TO_GENRE]->(g);
+MATCH (m:Music {title: "Dog Days Are Over"}), (g:Genre {name: "Indie"}) CREATE (m)-[:BELONGS_TO_GENRE]->(g);
+MATCH (m:Music {title: "Shake It Out"}), (g:Genre {name: "Indie"}) CREATE (m)-[:BELONGS_TO_GENRE]->(g);
+MATCH (m:Music {title: "Sozinho"}), (g:Genre {name: "MPB"}) CREATE (m)-[:BELONGS_TO_GENRE]->(g);
+MATCH (m:Music {title: "Leãozinho"}), (g:Genre {name: "MPB"}) CREATE (m)-[:BELONGS_TO_GENRE]->(g);
+MATCH (m:Music {title: "HUMBLE."}), (g:Genre {name: "Hip-Hop"}) CREATE (m)-[:BELONGS_TO_GENRE]->(g);
+MATCH (m:Music {title: "Alright"}), (g:Genre {name: "Hip-Hop"}) CREATE (m)-[:BELONGS_TO_GENRE]->(g);
+MATCH (m:Music {title: "Symphony No. 5"}), (g:Genre {name: "Classical"}) CREATE (m)-[:BELONGS_TO_GENRE]->(g);
+MATCH (m:Music {title: "Für Elise"}), (g:Genre {name: "Classical"}) CREATE (m)-[:BELONGS_TO_GENRE]->(g);
+MATCH (m:Music {title: "So What"}), (g:Genre {name: "Jazz"}) CREATE (m)-[:BELONGS_TO_GENRE]->(g);
+MATCH (m:Music {title: "Blue in Green"}), (g:Genre {name: "Jazz"}) CREATE (m)-[:BELONGS_TO_GENRE]->(g);
+MATCH (m:Music {title: "Ho Hey"}), (g:Genre {name: "Folk"}) CREATE (m)-[:BELONGS_TO_GENRE]->(g);
+MATCH (m:Music {title: "Ophelia"}), (g:Genre {name: "Folk"}) CREATE (m)-[:BELONGS_TO_GENRE]->(g);
+MATCH (m:Music {title: "Enter Sandman"}), (g:Genre {name: "Metal"}) CREATE (m)-[:BELONGS_TO_GENRE]->(g);
+MATCH (m:Music {title: "Master of Puppets"}), (g:Genre {name: "Metal"}) CREATE (m)-[:BELONGS_TO_GENRE]->(g);
+MATCH (m:Music {title: "Aquele Abraço"}), (g:Genre {name: "MPB"}) CREATE (m)-[:BELONGS_TO_GENRE]->(g);
+MATCH (m:Music {title: "Andar com Fé"}), (g:Genre {name: "MPB"}) CREATE (m)-[:BELONGS_TO_GENRE]->(g);
+
+MATCH (m:Music {title: "Creep"}), (g:Genre {name: "Indie"}) CREATE (m)-[:BELONGS_TO_GENRE]->(g);
+MATCH (m:Music {title: "Creep"}), (g:Genre {name: "Rock"}) CREATE (m)-[:BELONGS_TO_GENRE]->(g);
+MATCH (m:Music {title: "Paranoid Android"}), (g:Genre {name: "Rock"}) CREATE (m)-[:BELONGS_TO_GENRE]->(g);
+MATCH (m:Music {title: "Everything in Its Right Place"}), (g:Genre {name: "Eletrônica"}) CREATE (m)-[:BELONGS_TO_GENRE]->(g);
+
+MATCH (a:Artist {name: "Taylor Swift"}), (g:Genre {name: "Pop"}) CREATE (a)-[:PLAYS_GENRE]->(g);
+MATCH (a:Artist {name: "Queen"}), (g:Genre {name: "Rock"}) CREATE (a)-[:PLAYS_GENRE]->(g);
+MATCH (a:Artist {name: "Daft Punk"}), (g:Genre {name: "Eletrônica"}) CREATE (a)-[:PLAYS_GENRE]->(g);
+MATCH (a:Artist {name: "Florence + The Machine"}), (g:Genre {name: "Indie"}) CREATE (a)-[:PLAYS_GENRE]->(g);
+MATCH (a:Artist {name: "Caetano Veloso"}), (g:Genre {name: "MPB"}) CREATE (a)-[:PLAYS_GENRE]->(g);
+MATCH (a:Artist {name: "Kendrick Lamar"}), (g:Genre {name: "Hip-Hop"}) CREATE (a)-[:PLAYS_GENRE]->(g);
+MATCH (a:Artist {name: "Beethoven"}), (g:Genre {name: "Classical"}) CREATE (a)-[:PLAYS_GENRE]->(g);
+MATCH (a:Artist {name: "Miles Davis"}), (g:Genre {name: "Jazz"}) CREATE (a)-[:PLAYS_GENRE]->(g);
+MATCH (a:Artist {name: "The Lumineers"}), (g:Genre {name: "Folk"}) CREATE (a)-[:PLAYS_GENRE]->(g);
+MATCH (a:Artist {name: "Metallica"}), (g:Genre {name: "Metal"}) CREATE (a)-[:PLAYS_GENRE]->(g);
+MATCH (a:Artist {name: "Gilberto Gil"}), (g:Genre {name: "MPB"}) CREATE (a)-[:PLAYS_GENRE]->(g);
+
+MATCH (a:Artist {name: "Radiohead"}), (g:Genre {name: "Indie"}) CREATE (a)-[:PLAYS_GENRE]->(g);
+MATCH (a:Artist {name: "Radiohead"}), (g:Genre {name: "Rock"}) CREATE (a)-[:PLAYS_GENRE]->(g);
+MATCH (a:Artist {name: "Radiohead"}), (g:Genre {name: "Eletrônica"}) CREATE (a)-[:PLAYS_GENRE]->(g);
+
+MATCH (u:User {name: "Alice"}), (m:Music {title: "Anti-Hero"}) CREATE (u)-[:LIKES]->(m);
+MATCH (u:User {name: "Alice"}), (m:Music {title: "Dog Days Are Over"}) CREATE (u)-[:LISTENED_TO {play_count: 20}]->(m);
+MATCH (u:User {name: "Alice"}), (a:Artist {name: "Taylor Swift"}) CREATE (u)-[:FOLLOWS]->(a);
+MATCH (u:User {name: "Alice"}), (a:Artist {name: "Florence + The Machine"}) CREATE (u)-[:FOLLOWS]->(a);
+
+MATCH (u:User {name: "David"}), (m:Music {title: "Cruel Summer"}) CREATE (u)-[:LIKES]->(m);
+MATCH (u:User {name: "David"}), (m:Music {title: "Dog Days Are Over"}) CREATE (u)-[:LIKES]->(m); 
+MATCH (u:User {name: "David"}), (m:Music {title: "Ho Hey"}) CREATE (u)-[:LISTENED_TO {play_count: 15}]->(m);
+MATCH (u:User {name: "David"}), (a:Artist {name: "Taylor Swift"}) CREATE (u)-[:FOLLOWS]->(a); 
+MATCH (u:User {name: "David"}), (a:Artist {name: "The Lumineers"}) CREATE (u)-[:FOLLOWS]->(a);
+
+MATCH (u:User {name: "Maria"}), (m:Music {title: "Ophelia"}) CREATE (u)-[:LIKES]->(m);
+MATCH (u:User {name: "Maria"}), (m:Music {title: "Shake It Out"}) CREATE (u)-[:LISTENED_TO {play_count: 10}]->(m);
+MATCH (u:User {name: "Maria"}), (a:Artist {name: "The Lumineers"}) CREATE (u)-[:FOLLOWS]->(a); 
+MATCH (u:User {name: "Maria"}), (a:Artist {name: "Florence + The Machine"}) CREATE (u)-[:FOLLOWS]->(a); 
+
+MATCH (u:User {name: "Bob"}), (m:Music {title: "Bohemian Rhapsody"}) CREATE (u)-[:LIKES]->(m);
+MATCH (u:User {name: "Bob"}), (m:Music {title: "Enter Sandman"}) CREATE (u)-[:LISTENED_TO {play_count: 50}]->(m);
+MATCH (u:User {name: "Bob"}), (a:Artist {name: "Queen"}) CREATE (u)-[:FOLLOWS]->(a);
+MATCH (u:User {name: "Bob"}), (a:Artist {name: "Metallica"}) CREATE (u)-[:FOLLOWS]->(a);
+
+MATCH (u:User {name: "Frank"}), (m:Music {title: "Master of Puppets"}) CREATE (u)-[:LIKES]->(m);
+MATCH (u:User {name: "Frank"}), (m:Music {title: "Paranoid Android"}) CREATE (u)-[:LISTENED_TO {play_count: 5}]->(m);
+MATCH (u:User {name: "Frank"}), (a:Artist {name: "Metallica"}) CREATE (u)-[:FOLLOWS]->(a); 
+MATCH (u:User {name: "Frank"}), (a:Artist {name: "Radiohead"}) CREATE (u)-[:FOLLOWS]->(a); 
+
+MATCH (u:User {name: "Heidi"}), (m:Music {title: "Don't Stop Me Now"}) CREATE (u)-[:LIKES]->(m);
+MATCH (u:User {name: "Heidi"}), (m:Music {title: "Creep"}) CREATE (u)-[:LIKES]->(m);
+MATCH (u:User {name: "Heidi"}), (a:Artist {name: "Queen"}) CREATE (u)-[:FOLLOWS]->(a);
+MATCH (u:User {name: "Heidi"}), (a:Artist {name: "Radiohead"}) CREATE (u)-[:FOLLOWS]->(a); 
+
+MATCH (u:User {name: "Eve"}), (m:Music {title: "Get Lucky"}) CREATE (u)-[:LIKES]->(m);
+MATCH (u:User {name: "Eve"}), (m:Music {title: "HUMBLE."}) CREATE (u)-[:LISTENED_TO {play_count: 25}]->(m);
+MATCH (u:User {name: "Eve"}), (a:Artist {name: "Daft Punk"}) CREATE (u)-[:FOLLOWS]->(a);
+MATCH (u:User {name: "Eve"}), (a:Artist {name: "Kendrick Lamar"}) CREATE (u)-[:FOLLOWS]->(a);
+
+MATCH (u:User {name: "Judy"}), (m:Music {title: "Alright"}) CREATE (u)-[:LIKES]->(m);
+MATCH (u:User {name: "Judy"}), (m:Music {title: "Everything in Its Right Place"}) CREATE (u)-[:LIKES]->(m);
+MATCH (u:User {name: "Judy"}), (a:Artist {name: "Kendrick Lamar"}) CREATE (u)-[:FOLLOWS]->(a); 
+MATCH (u:User {name: "Judy"}), (a:Artist {name: "Radiohead"}) CREATE (u)-[:FOLLOWS]->(a);
+
+MATCH (u:User {name: "Liam"}), (m:Music {title: "One More Time"}) CREATE (u)-[:LISTENED_TO {play_count: 30}]->(m);
+MATCH (u:User {name: "Liam"}), (m:Music {title: "Paranoid Android"}) CREATE (u)-[:LIKES]->(m);
+MATCH (u:User {name: "Liam"}), (a:Artist {name: "Daft Punk"}) CREATE (u)-[:FOLLOWS]->(a); 
+MATCH (u:User {name: "Liam"}), (a:Artist {name: "Radiohead"}) CREATE (u)-[:FOLLOWS]->(a); 
+
+MATCH (u:User {name: "Carol"}), (m:Music {title: "Sozinho"}) CREATE (u)-[:LIKES]->(m);
+MATCH (u:User {name: "Carol"}), (m:Music {title: "So What"}) CREATE (u)-[:LISTENED_TO {play_count: 10}]->(m);
+MATCH (u:User {name: "Carol"}), (a:Artist {name: "Caetano Veloso"}) CREATE (u)-[:FOLLOWS]->(a);
+MATCH (u:User {name: "Carol"}), (a:Artist {name: "Miles Davis"}) CREATE (u)-[:FOLLOWS]->(a);
+
+MATCH (u:User {name: "Grace"}), (m:Music {title: "Aquele Abraço"}) CREATE (u)-[:LIKES]->(m);
+MATCH (u:User {name: "Grace"}), (m:Music {title: "Symphony No. 5"}) CREATE (u)-[:LISTENED_TO {play_count: 5}]->(m);
+MATCH (u:User {name: "Grace"}), (a:Artist {name: "Gilberto Gil"}) CREATE (u)-[:FOLLOWS]->(a);
+MATCH (u:User {name: "Grace"}), (a:Artist {name: "Beethoven"}) CREATE (u)-[:FOLLOWS]->(a);
+
+MATCH (u:User {name: "Ivan"}), (m:Music {title: "Leãozinho"}) CREATE (u)-[:LIKES]->(m);
+MATCH (u:User {name: "Ivan"}), (m:Music {title: "Blue in Green"}) CREATE (u)-[:LIKES]->(m);
+MATCH (u:User {name: "Ivan"}), (a:Artist {name: "Caetano Veloso"}) CREATE (u)-[:FOLLOWS]->(a); 
+MATCH (u:User {name: "Ivan"}), (a:Artist {name: "Gilberto Gil"}) CREATE (u)-[:FOLLOWS]->(a);
+MATCH (u:User {name: "Ivan"}), (a:Artist {name: "Miles Davis"}) CREATE (u)-[:FOLLOWS]->(a); 
+
+
+MATCH (u1:User {name: "Alice"}), (u2:User {name: "David"}) CREATE (u1)-[:FOLLOWS]->(u2), (u2)-[:FOLLOWS]->(u1);
+MATCH (u1:User {name: "Alice"}), (u2:User {name: "Maria"}) CREATE (u1)-[:FOLLOWS]->(u2);
+MATCH (u1:User {name: "David"}), (u2:User {name: "Maria"}) CREATE (u1)-[:FOLLOWS]->(u2);
+
+MATCH (u1:User {name: "Bob"}), (u2:User {name: "Frank"}) CREATE (u1)-[:FOLLOWS]->(u2);
+MATCH (u1:User {name: "Bob"}), (u2:User {name: "Heidi"}) CREATE (u1)-[:FOLLOWS]->(u2), (u2)-[:FOLLOWS]->(u1);
+
+MATCH (u1:User {name: "Eve"}), (u2:User {name: "Judy"}) CREATE (u1)-[:FOLLOWS]->(u2);
+MATCH (u1:User {name: "Judy"}), (u2:User {name: "Liam"}) CREATE (u1)-[:FOLLOWS]->(u2), (u2)-[:FOLLOWS]->(u1);
+
+MATCH (u1:User {name: "Carol"}), (u2:User {name: "Ivan"}) CREATE (u1)-[:FOLLOWS]->(u2);
+MATCH (u1:User {name: "Grace"}), (u2:User {name: "Ivan"}) CREATE (u1)-[:FOLLOWS]->(u2);
+
+MATCH (u1:User {name: "Alice"}), (u2:User {name: "Heidi"}) CREATE (u1)-[:FOLLOWS]->(u2);
+MATCH (u1:User {name: "Frank"}), (u2:User {name: "Liam"}) CREATE (u1)-[:FOLLOWS]->(u2); 
+MATCH (uF:User {name: "Eve"}), (u2:User {name: "Carol"}) CREATE (u1)-[:FOLLOWS]->(u2); 
