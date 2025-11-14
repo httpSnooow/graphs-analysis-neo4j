@@ -31,7 +31,7 @@ MERGE (p3:Post {postId: "post_003", text: "O mercado de ações está volátil h
 MERGE (p4:Post {postId: "post_004", text: "Dicas para seu primeiro investimento em FIIs."})
 MERGE (p5:Post {postId: "post_005", text: "Receita de pão de fermentação natural 🍞"})
 MERGE (p6:Post {postId: "post_006", text: "A importância de um bom back-end para Data Science."})
-MERGE (p7:Post {postId: "post_007", text: "Investir em tech vale a pena? Minha análise."}); // Post "Ponte"
+MERGE (p7:Post {postId: "post_007", text: "Investir em tech vale a pena? Minha análise."}); 
 
 // RELACIONAMENTOS
 
@@ -88,5 +88,5 @@ MATCH (u:User {username: "ana_data"}), (p:Post {postId: "post_001"}) CREATE (u)-
 MATCH (u:User {username: "bruno_backend"}), (p:Post {postId: "post_001"}) CREATE (u)-[:LIKES]->(p);
 MATCH (u:User {username: "gui_dev"}), (p:Post {postId: "post_006"}) CREATE (u)-[:REPOSTED]->(p);
 MATCH (u:User {username: "felipe_chef"}), (p:Post {postId: "post_005"}) CREATE (u)-[:LIKES]->(p);
-MATCH (u:User {username: "ana_data"}), (p:Post {postId: "post_005"}) CREATE (u)-[:LIKES]->(p); // Ana (Tech) curte post de Culinária
-MATCH (u:User {username: "gui_dev"}), (p:Post {postId: "post_007"}) CREATE (u)-[:LIKES]->(p); // Gui (Tech) curte post de Finanças/Tech
+MATCH (u:User {username: "ana_data"}), (p:Post {postId: "post_005"}) CREATE (u)-[:LIKES]->(p); 
+MATCH (u:User {username: "gui_dev"}), (p:Post {postId: "post_007"}) CREATE (u)-[:LIKES]->(p); 
