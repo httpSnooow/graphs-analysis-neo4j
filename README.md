@@ -1,4 +1,4 @@
-# 🚀 Neo4j: Análise de Dados com Grafos
+# Neo4j: Análise de Dados com Grafos
 
 > Repositório oficial dos meus estudos e desafios práticos desenvolvidos durante o Bootcamp da **Digital Innovation One (DIO)**. O foco é dominar a modelagem e análise de dados complexos através de Bancos de Dados Orientados a Grafos.
 
@@ -12,11 +12,11 @@
 
 ---
 
-## 🧠 O Que Estou Aprendendo?
+## O Que Estou Aprendendo?
 
 Diferente dos bancos relacionais (SQL) que focam em tabelas, este curso explora o poder das **conexões**. O objetivo é entender como modelar o mundo real através de nós e relacionamentos para resolver problemas como detecção de fraudes e sistemas de recomendação.
 
-### 📚 Conteúdo Programático
+### Conteúdo Programático
 
 <details>
 <summary><b>🔻 Clique para ver os módulos detalhados</b></summary>
@@ -33,7 +33,7 @@ Diferente dos bancos relacionais (SQL) que focam em tabelas, este curso explora 
 
 ---
 
-## 📂 Estrutura do Projeto
+## Estrutura do Projeto
 
 O repositório está organizado para facilitar a consulta de scripts e resoluções.
 
@@ -42,7 +42,7 @@ O repositório está organizado para facilitar a consulta de scripts e resoluç�
 
 ---
 
-## 🛠️ Tecnologias & Ferramentas
+## Tecnologias & Ferramentas
 
 <div align="left">
   <img src="https://img.shields.io/badge/Neo4j-008CC1?style=for-the-badge&logo=neo4j&logoColor=white" />
@@ -52,7 +52,7 @@ O repositório está organizado para facilitar a consulta de scripts e resoluç�
 
 ---
 
-## 🚀 Como Executar os Scripts
+## Como Executar os Scripts
 
 Você pode rodar os códigos deste repositório tanto localmente quanto na nuvem.
 
